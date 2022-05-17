@@ -1,0 +1,58 @@
+<div>
+  <div style="display: flex;justify-content: center;">
+    <svg height="270" width="200">
+
+      <%= if :gallows in @parts do %>
+        <line x1="175" y1="225" x2="5" y2="225" stroke="black" stroke-width="10" />
+        <polyline points="40,225 25,5 100,5 100,25" style="fill:none;stroke:black;stroke-width:10" />
+      <% end %>
+
+      <%= if :head in @parts do %>
+        <circle cx="100" cy="50" r="25" stroke="black" stroke-width="3" fill="white" />
+      <% end %>
+
+      <%= if :body in @parts do %>
+        <line x1="100" y1="75" x2="100" y2="140" stroke="black" stroke-width="3" />
+      <% end %>
+
+      <%= if :rightArm in @parts do %>
+        <line x1="100" y1="85" x2="60" y2="100" stroke="black" stroke-width="3" />
+      <% end %>
+
+      <%= if :leftArm in @parts do %>
+        <line x1="100" y1="85" x2="140" y2="100" stroke="black" stroke-width="3" />
+      <% end %>
+      
+      <%= if :rightLeg in @parts do %>
+        <line x1="100" y1="140" x2="80" y2="190" stroke="black" stroke-width="3" />
+      <% end %>
+      
+      <%= if :rightFoot in @parts do %>
+        <line x1="82" y1="190" x2="70" y2="185" stroke="black" stroke-width="3" />
+      <% end %>
+      
+      <%= if :leftLeg in @parts do %>
+        <line x1="100" y1="140" x2="125" y2="190" stroke="black" stroke-width="3" />
+      <% end %>
+      
+      <%= if :leftFoot in @parts do %>
+        <line x1="123" y1="190" x2="135" y2="185" stroke="black" stroke-width="3" />
+      <% end %>
+    </svg>
+  </div>
+  <div style="display: flex;justify-content: center;">
+    <h1 style="font-family: Consolas, monaco, monospace; height: 50px;"><%= @feedback %></h1>
+  </div>
+  <div style="display: flex;justify-content: center;">
+
+    <div className="buttons" style="max-width: 280px;text-align: center;">
+      <%= for letter <- Enum.map(?a..?z, &(<<&1>>)) do %>
+      <button phx-click={letter}><%= letter %></button>
+      <% end %>
+    </div>
+    <div className="buttons">
+      <button phx-click="new-game-req">New game</button>
+    </div>
+  </div>
+  Hola
+</div>
